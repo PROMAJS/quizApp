@@ -2,13 +2,11 @@ package com.mysite.quizApp.quiz;
 
 import com.mysite.quizApp.entities.PlayerEntity;
 import com.mysite.quizApp.repositories.PlayerRepository;
+import com.mysite.quizApp.services.QuizDataService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -18,6 +16,9 @@ public class StartUpRunner implements CommandLineRunner {
 
     @Autowired
     private PlayerRepository playerRepository;
+
+    @Autowired
+    private QuizDataService quizDataService;
 
     @Override
     @Transactional
@@ -34,6 +35,7 @@ public class StartUpRunner implements CommandLineRunner {
             log.info("Retrieved " + playerFromDb);
         }
 
-
+        quizDataService.getQuizCategories();
+        quizDataService.getQuizQuestions();
     }
 }
