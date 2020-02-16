@@ -12,6 +12,7 @@ import java.util.List;
 @ToString
 @Getter
 public class CategoriesDto {
+
     @JsonProperty("trivia_categories")
     private List<CategoryDto> categories;
 

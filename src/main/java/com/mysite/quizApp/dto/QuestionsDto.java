@@ -27,7 +27,7 @@ public class QuestionsDto {
         private String question;
         @JsonProperty("correct_answer")
         private String correctAnswer;
-        @JsonProperty("incorrect_answer")
+        @JsonProperty("incorrect_answers")
         private List<String> incorrectAnswer;
 
 
